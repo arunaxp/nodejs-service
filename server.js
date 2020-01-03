@@ -14,9 +14,26 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/views/index.html');
 });
 
+var users = [];
+
 io.on('connection', function(socket){
-  socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
+  socket.on('login', function(message){
+    users.push({
+      username : message,
+      id: socket.id
+    });
+    console.log(users);
+  });
+  socket.on('chat message', function(message){
+    console.log(message);
+    var to = message.id=='A'?'B':'A';
+    for (const user of users) {
+      if(user.username==to)
+      {
+        io.to(user.id).emit('chat message', message.message);
+      }
+    }
+    
   });
 });
 

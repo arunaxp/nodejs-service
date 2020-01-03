@@ -39,6 +39,10 @@
             message.draw();
             return $messages.animate({ scrollTop: $messages.prop('scrollHeight') }, 300);
         };
+
+        $('#connect').click(function (e) {
+            socket.emit('login',$('#name').val());
+        });
         
         socket.on('chat message', function(msg){
             console.log(msg);
@@ -49,18 +53,24 @@
         $('.send_message').click(function (e) {
             var txt = getMessageText();
             if(txt!=''){
-                var res = sendMessage(txt);
-                console.log(res);
-                socket.emit('chat message',txt);
+                //var res = sendMessage(txt);
+                //console.log(res);
+                socket.emit('chat message',{
+                    message:txt,
+                    id: $('#name').val()
+                });
             }
         });
         $('.message_input').keyup(function (e) {
             if (e.which === 13) {
                 var txt = getMessageText();
                 if(txt!=''){
-                    var res = sendMessage(txt);
-                    console.log(res);
-                    socket.emit('chat message',txt);
+                   //var res = sendMessage(txt);
+                   // console.log(res);
+                    socket.emit('chat message',{
+                        message:txt,
+                        id: $('#name').val()
+                    });
                 }
             }
         });
