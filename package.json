@@ -13,6 +13,10 @@
   "author": "aruna jayathilaka",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "bootstrap": "^4.1.3",
+    "express": "^4.17.1",
+    "jquery": "^3.4.1",
+    "pug": "^2.0.4",
+    "socket.io": "^2.3.0"
   }
 }
