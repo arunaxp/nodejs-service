@@ -1,21 +1,45 @@
 <script src="/jquery/jquery.min.js"></script>
 <link rel="stylesheet" href="/bootstrap-css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="/css/chat.css" />
 <script src="/bootstrap-js/bootstrap.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="/js/chat.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-<input id="name" placeholder="name" /><input type="button" id="connect" value="connect" />
+<!-- <input id="name" placeholder="name" /><input type="button" id="connect" value="connect" /> -->
 <div class="chat_window">
     <div class="top_menu">
         <div class="buttons">
-            <div class="button close"></div>
+            <div id="userstatus" class="button offline"></div> 
             <!-- <div class="button minimize"></div>
             <div class="button maximize"></div> -->
         </div>
+        <div class="username-holder"></div>
         <div class="title">Chat</div>
     </div>
-    <ul class="messages"></ul>
+    <div class="login-wrapper">
+        <div class="login">
+                <div class="form-row align-items-center">
+                    <div class="login-inner-wrap">
+                  <div class="col-auto">
+                    <label class="sr-only" for="inlineFormInputGroup">Username</label>
+                        <div class="input-group mb-2">
+                          <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fas fa-user"></i></div>
+                         </div>
+                        <input type="text" class="form-control" id="txtuserName" placeholder="Username">
+                    </div>
+                  </div>
+                  <div class="col-auto">
+                    <button type="button" class="btn btn-primary mb-2 btn-login" >Login</button>
+                  </div>
+                  </div>
+                </div>
+        </div>
+        <ul class="messages"></ul>
+    </div>
     <div class="bottom_wrapper clearfix">
         <div class="message_input_wrapper">
             <input class="message_input" placeholder="Type your message here..." />

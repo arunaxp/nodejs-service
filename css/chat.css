@@ -40,6 +40,14 @@
     margin-right: 10px;
     position: relative;
   }
+  .top_menu .buttons .button.online {
+    background-color: #a3d063;
+  }
+
+  .top_menu .buttons .button.offline {
+    background-color: #cfd0ce;
+  }
+
   .top_menu .buttons .button.close {
     background-color: #f5886e;
   }
@@ -61,7 +69,7 @@
     padding: 20px 10px 0 10px;
     margin: 0;
     height: 347px;
-    overflow: scroll;
+    overflow: auto;
   }
   .messages .message {
     clear: both;
@@ -194,3 +202,44 @@
     display: none;
   }
   
+  .login-wrapper{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background-color: rgba(0,0,0,0.2); /*dim the background*/
+  }
+
+  .login{
+    top: 35%;
+    padding-left: 33%;
+    position: relative;
+    z-index: 11;
+  }
+
+  .btn-login
+  {
+    width: 100px;
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #a3d063;
+    border: 1px solid #91c04b;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    text-align: center;
+  }
+
+  .login-inner-wrap{
+    background: aliceblue;
+    padding-top: 8px;
+    border-radius: 4px;
+  }
+
+  .username-holder{
+    position: absolute;
+    padding-left: 40px;
+    padding-top: 0px;
+  }

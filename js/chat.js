@@ -41,7 +41,7 @@
         };
 
         $('#connect').click(function (e) {
-            socket.emit('login',$('#name').val());
+            socket.emit('login',JSON.parse(localStorage.getItem('user')).username);
         });
         
         socket.on('chat message', function(msg){
@@ -57,7 +57,7 @@
                 //console.log(res);
                 socket.emit('chat message',{
                     message:txt,
-                    id: $('#name').val()
+                    id: JSON.parse(localStorage.getItem('user')).username
                 });
             }
         });
@@ -69,11 +69,33 @@
                    // console.log(res);
                     socket.emit('chat message',{
                         message:txt,
-                        id: $('#name').val()
+                        id: JSON.parse(localStorage.getItem('user')).username
                     });
                 }
             }
         });
 
+        $('.btn-login').click(function (e) {
+           if($('#txtuserName').val().trim()!=''){
+                console.log($('#txtuserName').val().trim());
+                $('.login-wrapper').hide();
+                localStorage.setItem('login', true);
+                localStorage.setItem('user', JSON.stringify({
+                    username:$('#txtuserName').val().trim()
+                }));
+
+                $('.username-holder').text($('#txtuserName').val().trim());
+                $('#userstatus').removeClass('offline').addClass('online');
+                socket.emit('login',JSON.parse(localStorage.getItem('user')).username);
+           }
+        });
+
+        if(localStorage.getItem('login')=='true'){
+            $('.login-wrapper').hide();
+            console.log(JSON.parse(localStorage.getItem('user')).username);
+            $('.username-holder').text(JSON.parse(localStorage.getItem('user')).username);
+            $('#userstatus').removeClass('offline').addClass('online');
+            socket.emit('login',JSON.parse(localStorage.getItem('user')).username);
+        }
     });
 }.call(this));

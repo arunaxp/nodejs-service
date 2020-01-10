@@ -18,18 +18,28 @@ var users = [];
 
 io.on('connection', function(socket){
   socket.on('login', function(message){
+    console.log(users.find(x=>x.username==message));
+    users = users.filter(function(value, index, arr){
+      return value.username!=message;
+    });
+    console.log(JSON.stringify(users));
     users.push({
       username : message,
       id: socket.id
     });
+    console.log('-------');
     console.log(users);
+    console.log('-------');
   });
   socket.on('chat message', function(message){
     console.log(message);
-    var to = message.id=='A'?'B':'A';
+    var to = message.id=='Aruna'?'Sam':'Aruna';
     for (const user of users) {
+      console.log(user.username,to)
+
       if(user.username==to)
       {
+
         io.to(user.id).emit('chat message', message.message);
       }
     }
