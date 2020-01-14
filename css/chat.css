@@ -12,7 +12,7 @@
     width: calc(100% - 20px);
     max-width: 800px;
     height: 500px;
-    border-radius: 10px;
+    border-radius: 4px;
     background-color: #fff;
     left: 50%;
     top: 50%;
@@ -159,7 +159,7 @@
   .bottom_wrapper .message_input_wrapper {
     display: inline-block;
     height: 50px;
-    border-radius: 25px;
+    border-radius: 4px;
     border: 1px solid #bcbdc0;
     width: calc(100% - 160px);
     position: relative;
@@ -178,7 +178,7 @@
     width: 140px;
     height: 50px;
     display: inline-block;
-    border-radius: 50px;
+    border-radius: 4px;
     background-color: #a3d063;
     border: 2px solid #a3d063;
     color: #fff;
@@ -250,3 +250,70 @@
     font-size: 40px;
     color: white;
   }
+  
+  .buttons_left{
+    position: relative;
+    margin-right: 5px;
+    float: right;
+    margin-top: -30px;
+  }
+
+  /*buttons*/
+  .img-btn { 
+    color: #FFFFFF; 
+    background-color: #B1C5E8; 
+    border-color: #FFFFFF; 
+    border: none !important;
+    cursor: pointer;
+  } 
+   
+  .img-btn:hover, 
+  .img-btn:focus, 
+  .img-btn:active, 
+  .img-btn.active, 
+  .open .dropdown-toggle.img-btn { 
+    color: #FFFFFF; 
+    background-color: #88AEF0; 
+    border-color: #FFFFFF; 
+    border-style: outset;
+  } 
+   
+  .img-btn:active, 
+  .img-btn.active, 
+  .open .dropdown-toggle.img-btn { 
+    background-image: none; 
+  } 
+   
+  .img-btn.disabled, 
+  .img-btn[disabled], 
+  fieldset[disabled] .img-btn, 
+  .img-btn.disabled:hover, 
+  .img-btn[disabled]:hover, 
+  fieldset[disabled] .img-btn:hover, 
+  .img-btn.disabled:focus, 
+  .img-btn[disabled]:focus, 
+  fieldset[disabled] .img-btn:focus, 
+  .img-btn.disabled:active, 
+  .img-btn[disabled]:active, 
+  fieldset[disabled] .img-btn:active, 
+  .img-btn.disabled.active, 
+  .img-btn[disabled].active, 
+  fieldset[disabled] .img-btn.active { 
+    background-color: #B1C5E8; 
+    border-color: #FFFFFF; 
+  } 
+   
+  .img-btn .badge { 
+    color: #B1C5E8; 
+    background-color: #FFFFFF; 
+  }
+  /* .img-btn{
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+  }
+
+  .img-btn:hover{
+    color: #a3d063;
+    background-color: #fff;
+  } */
