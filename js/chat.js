@@ -2,13 +2,17 @@
     var socket = io();
     var Message;
     Message = function (arg) {
-        this.text = arg.text, this.message_side = arg.message_side;
+        this.text = arg.text, 
+        this.username = arg.username,
+        this.message_side = arg.message_side;
         this.draw = function (_this) {
             return function () {
                 var $message;
                 $message = $($('.message_template').clone().html());
                 $message.addClass(_this.message_side).find('.text').html(_this.text);
+                $message.find('.avatar_text').html(_this.username.charAt(0).toUpperCase());
                 $('.messages').append($message);
+                console.log($message);
                 return setTimeout(function () {
                     return $message.addClass('appeared');
                 }, 0);
@@ -24,17 +28,21 @@
             $message_input = $('.message_input');
             return $message_input.val();
         };
-        sendMessage = function (text) {
+        sendMessage = function (text,username) {
+            console.log('text');
+            console.log(text);
             var $messages, message;
             if (text.trim() === '') {
                 return;
             }
             $('.message_input').val('');
             $messages = $('.messages');
-            message_side = message_side === 'left' ? 'right' : 'left';
+            //message_side = message_side === 'left' ? 'right' : 'left';
+            
             message = new Message({
                 text: text,
-                message_side: message_side
+                message_side: message_side,
+                username: username
             });
             message.draw();
             return $messages.animate({ scrollTop: $messages.prop('scrollHeight') }, 300);
@@ -44,32 +52,39 @@
             socket.emit('login',JSON.parse(localStorage.getItem('user')).username);
         });
         
-        socket.on('chat message', function(msg){
-            console.log(msg);
-            var res = sendMessage(msg);
-            console.log(res);
+        socket.on('chat_message', function(message){
+            console.log('socket.on');
+            console.log(message);
+            if(message.from != JSON.parse(localStorage.getItem('user')).username){
+                message_side ='left';
+                var res = sendMessage(message.message,message.from);
+                console.log(res);
+            }
         });
 
         $('.send_message').click(function (e) {
             var txt = getMessageText();
             if(txt!=''){
-                //var res = sendMessage(txt);
-                //console.log(res);
-                socket.emit('chat message',{
+                message_side ='right';
+                sendMessage(txt,JSON.parse(localStorage.getItem('user')).username);
+
+                socket.emit('chat_message',{
                     message:txt,
-                    id: JSON.parse(localStorage.getItem('user')).username
+                    from: JSON.parse(localStorage.getItem('user')).username
                 });
             }
         });
+
         $('.message_input').keyup(function (e) {
             if (e.which === 13) {
                 var txt = getMessageText();
                 if(txt!=''){
-                   //var res = sendMessage(txt);
+                    message_side ='right';
+                    sendMessage(txt,JSON.parse(localStorage.getItem('user')).username);
                    // console.log(res);
-                    socket.emit('chat message',{
+                    socket.emit('chat_message',{
                         message:txt,
-                        id: JSON.parse(localStorage.getItem('user')).username
+                        from: JSON.parse(localStorage.getItem('user')).username
                     });
                 }
             }
