@@ -2,9 +2,10 @@
 <link rel="stylesheet" href="/bootstrap-css/bootstrap.min.css" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="/css/chat.css" />
-<script src="/bootstrap-js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/css/animate.css" />
+<script src="/bootstrap-js/bootstrap.bundle.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="/js/chat.js"></script>
 <!------ Include the above in your HEAD tag ---------->
@@ -12,35 +13,46 @@
 <div class="chat_window">
     <div class="top_menu">
         <div class="buttons">
-            <div id="userstatus" class="button offline"></div> 
-            <!-- <div class="button minimize"></div>
-            <div class="button maximize"></div> -->
+            
+            <div class="btn-group ">
+                <button class="custom-btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div id="userstatus" class="button offline" style="margin-top: 2px;"></div> 
+                    <span class="username-holder"></span>
+                </button>
+                <div class="dropdown-menu" style="padding: 3px 3px 3px 12px;">
+                    <a id="signout" style="padding:0px" class="dropdown-item" href="javscript:void(0)">Signout</a>
+                </div>
+                <span class="custom-btn btn-sm">
+                    <div id="rainbomuserstatus" class="button offline" style="margin-top: 2px;"></div> 
+                    <span class="random-username-holder"></span>
+                </span>
+              </div>
         </div>
-        <div class="username-holder"></div>
+        
         <div class="title">Chat</div>
         <div class="buttons_left">
-            <button class="img-btn"><i class="fas fa-sync-alt"></i> New Partner</button>
-            <button class="img-btn"><i class="fas fa-sync-alt"></i> End Chat</button>
+            <button id="btn-newpartner" class="custom-btn"><i class="fas fa-sync-alt"></i> New Partner</button>
+            <button id="btn-endchat" class="custom-btn"><i class="fas fa-sync-alt"></i> End Chat</button>
         </div>
     </div>
     <div class="login-wrapper">
         <div class="login">
-                <div class="form-row align-items-center">
-                    <div class="login-inner-wrap">
-                  <div class="col-auto">
+            <div class="container">
+                <div class="row">
+                  <div class="col" style="padding-right: 5px;">
                     <label class="sr-only" for="inlineFormInputGroup">Username</label>
-                        <div class="input-group mb-2">
-                          <div class="input-group-prepend">
-                            <div class="input-group-text"><i class="fas fa-user"></i></div>
-                         </div>
-                        <input type="text" class="form-control" id="txtuserName" placeholder="Username">
-                    </div>
+                    <div class="input-group mb-2">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-user"></i></div>
+                     </div>
+                    <input type="text" class="form-control" id="txtuserName" placeholder="Username">
+                </div>
                   </div>
-                  <div class="col-auto">
+                  <div class="col" style="padding-left: 0px;">
                     <button type="button" class="btn btn-primary mb-2 btn-login" >Login</button>
                   </div>
-                  </div>
                 </div>
+              </div>
         </div>
     </div>
     <ul class="messages"></ul>
@@ -63,4 +75,8 @@
             <div class="text"></div>
         </div>
     </li>
+</div>
+<input type="button" value="asdasd" id="test"/>
+<div id="notification-holder" style="width: 29%;top: 5px;position: fixed;right: 5px;">
+    
 </div>

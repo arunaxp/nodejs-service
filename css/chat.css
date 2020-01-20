@@ -37,7 +37,7 @@
     height: 16px;
     border-radius: 50%;
     display: inline-block;
-    margin-right: 10px;
+    margin-right: 1px;
     position: relative;
   }
   .top_menu .buttons .button.online {
@@ -214,9 +214,14 @@
 
   .login{
     top: 35%;
-    padding-left: 33%;
+    padding-left: 20%;
     position: relative;
     z-index: 11;
+    background: aliceblue;
+    height: 58px;
+    padding-top: 10px;
+    border-bottom: 1px solid #a5b3bf;
+    border-top: 1px solid #a5b3bf;
   }
 
   .btn-login
@@ -239,9 +244,8 @@
   }
 
   .username-holder{
-    position: absolute;
-    padding-left: 40px;
-    padding-top: 0px;
+    position: relative;
+    bottom: 3px;
   }
 
   .avatar_text{
@@ -259,61 +263,59 @@
   }
 
   /*buttons*/
-  .img-btn { 
-    color: #FFFFFF; 
-    background-color: #B1C5E8; 
-    border-color: #FFFFFF; 
-    border: none !important;
+  .custom-btn { 
+    color: #ffffff; 
+    background-color: #59ABAB; 
+    border-color: #3CC2C2; 
     cursor: pointer;
+    border: 1px solid #fff;
+  } 
+
+  .btn-sm{
+    height:30px;
+  }
+   
+  .custom-btn:hover, 
+  .custom-btn:focus, 
+  .custom-btn:active, 
+  .custom-btn.active, 
+  .open .dropdown-toggle.custom-btn { 
+    color: #ffffff; 
+    background-color: #359999; 
+    border-color: #3CC2C2; 
   } 
    
-  .img-btn:hover, 
-  .img-btn:focus, 
-  .img-btn:active, 
-  .img-btn.active, 
-  .open .dropdown-toggle.img-btn { 
-    color: #FFFFFF; 
-    background-color: #88AEF0; 
-    border-color: #FFFFFF; 
-    border-style: outset;
-  } 
-   
-  .img-btn:active, 
-  .img-btn.active, 
-  .open .dropdown-toggle.img-btn { 
+  .custom-btn:active, 
+  .custom-btn.active, 
+  .open .dropdown-toggle.custom-btn { 
     background-image: none; 
   } 
    
-  .img-btn.disabled, 
-  .img-btn[disabled], 
-  fieldset[disabled] .img-btn, 
-  .img-btn.disabled:hover, 
-  .img-btn[disabled]:hover, 
-  fieldset[disabled] .img-btn:hover, 
-  .img-btn.disabled:focus, 
-  .img-btn[disabled]:focus, 
-  fieldset[disabled] .img-btn:focus, 
-  .img-btn.disabled:active, 
-  .img-btn[disabled]:active, 
-  fieldset[disabled] .img-btn:active, 
-  .img-btn.disabled.active, 
-  .img-btn[disabled].active, 
-  fieldset[disabled] .img-btn.active { 
-    background-color: #B1C5E8; 
-    border-color: #FFFFFF; 
+  .custom-btn.disabled, 
+  .custom-btn[disabled], 
+  fieldset[disabled] .custom-btn, 
+  .custom-btn.disabled:hover, 
+  .custom-btn[disabled]:hover, 
+  fieldset[disabled] .custom-btn:hover, 
+  .custom-btn.disabled:focus, 
+  .custom-btn[disabled]:focus, 
+  fieldset[disabled] .custom-btn:focus, 
+  .custom-btn.disabled:active, 
+  .custom-btn[disabled]:active, 
+  fieldset[disabled] .custom-btn:active, 
+  .custom-btn.disabled.active, 
+  .custom-btn[disabled].active, 
+  fieldset[disabled] .custom-btn.active { 
+    background-color: #59ABAB; 
+    border-color: #3CC2C2; 
   } 
    
-  .img-btn .badge { 
-    color: #B1C5E8; 
-    background-color: #FFFFFF; 
-  }
-  /* .img-btn{
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
+  .custom-btn .badge { 
+    color: #59ABAB; 
+    background-color: #ffffff; 
   }
 
-  .img-btn:hover{
-    color: #a3d063;
-    background-color: #fff;
-  } */
+  .random-username-holder {
+    position: relative;
+    bottom: 3px;
+  }
